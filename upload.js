@@ -2,11 +2,10 @@ const uploadBtn = document.getElementById("uploadBtn");
 const fileInput = document.getElementById("fileInput");
 const uploadStatus = document.getElementById("uploadStatus");
 
-// 🔐 Mets ton token ici
+// 🔐 Mets ton NOUVEAU token ici
 const GITHUB_TOKEN = "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";
 
-// 📦 Ton vrai dépôt
-const REPO = "dalyon1da/analyse-log-fieldday";
+const REPO = "dalvyon1da/analyse-log-fieldday";
 const BRANCH = "principal";
 
 uploadBtn.addEventListener("click", async () => {
@@ -17,13 +16,9 @@ uploadBtn.addEventListener("click", async () => {
         return;
     }
 
-    // Lire le contenu du fichier
     const content = await file.text();
-
-    // Chemin où le fichier sera stocké dans ton dépôt
     const path = `data/logs/${file.name}`;
 
-    // Requête API GitHub
     const response = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
         method: "PUT",
         headers: {
