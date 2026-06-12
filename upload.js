@@ -3,7 +3,7 @@ const fileInput = document.getElementById("fileInput");
 const status = document.getElementById("uploadStatus");
 
 // ⚠️ Tu devras créer un token GitHub avec droits "repo"
-const GITHUB_TOKEN = "A_METTRE_ICI";
+const GITHUB_TOKEN = "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";
 const REPO = "TonPseudo/fieldday-vhf";
 const BRANCH = "main";
 
