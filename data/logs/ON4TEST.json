@@ -1,0 +1,7 @@
+{
+  "indicatif": "ON4TEST",
+  "qsos": [
+    { "call": "F1AAA", "distance_km": 120 },
+    { "call": "DL2BBB", "distance_km": 340 }
+  ]
+}
