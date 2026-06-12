@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Field Day VHF – Upload & Classement</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Field Day VHF – Plateforme Logs</h1>
+
+  <section id="upload-section">
+    <h2>Uploader un log</h2>
+    <input type="file" id="fileInput">
+    <button id="uploadBtn">Envoyer</button>
+    <p id="uploadStatus"></p>
+  </section>
+
+  <section id="classement-section">
+    <h2>Classement</h2>
+    <table id="ranking-table">
+      <thead>
+        <tr>
+          <th>Rang</th>
+          <th>Indicatif</th>
+          <th>Distance totale (km)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script src="upload.js"></script>
+  <script src="classement.js"></script>
+
+</body>
+</html>
