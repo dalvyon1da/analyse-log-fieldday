@@ -3,9 +3,9 @@ const fileInput = document.getElementById("fileInput");
 const uploadStatus = document.getElementById("uploadStatus");
 
 // 🔐 Mets TON TOKEN ici
-const GITHUB_TOKEN = "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";
+const GITHUB_TOKEN = "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";
 
-const REPO = "dalyon1da/analyse-log-fieldday";
+const REPO = "dalvyon1da/analyse-log-fieldday";
 const BRANCH = "principal";
 
 uploadBtn.addEventListener("click", async () => {
