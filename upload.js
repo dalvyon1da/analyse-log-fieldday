@@ -1,38 +1,45 @@
 const uploadBtn = document.getElementById("uploadBtn");
 const fileInput = document.getElementById("fileInput");
-const status = document.getElementById("uploadStatus");
+const uploadStatus = document.getElementById("uploadStatus");
 
-// ⚠️ Tu devras créer un token GitHub avec droits "repo"
+// 🔐 Mets ton token ici
 const GITHUB_TOKEN = "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";
-const REPO = "TonPseudo/fieldday-vhf";
-const BRANCH = "main";
+
+// 📦 Ton vrai dépôt
+const REPO = "dalyon1da/analyse-log-fieldday";
+const BRANCH = "principal";
 
 uploadBtn.addEventListener("click", async () => {
-  const file = fileInput.files[0];
-  if (!file) {
-    status.textContent = "Choisis un fichier.";
-    return;
-  }
+    const file = fileInput.files[0];
 
-  const content = await file.text();
-  const path = `data/logs/${file.name}`;
+    if (!file) {
+        uploadStatus.textContent = "Choisis un fichier.";
+        return;
+    }
 
-  const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
-    method: "PUT",
-    headers: {
-      "Authorization": `Bearer ${GITHUB_TOKEN}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      message: `Upload log ${file.name}`,
-      content: btoa(content),
-      branch: BRANCH
-    })
-  });
+    // Lire le contenu du fichier
+    const content = await file.text();
 
-  if (res.ok) {
-    status.textContent = "Upload réussi ! Le classement sera mis à jour automatiquement.";
-  } else {
-    status.textContent = "Erreur d’upload.";
-  }
+    // Chemin où le fichier sera stocké dans ton dépôt
+    const path = `data/logs/${file.name}`;
+
+    // Requête API GitHub
+    const response = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Bearer ${GITHUB_TOKEN}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: `Upload log ${file.name}`,
+            content: btoa(content),
+            branch: BRANCH
+        })
+    });
+
+    if (response.ok) {
+        uploadStatus.textContent = "Upload réussi !";
+    } else {
+        uploadStatus.textContent = "Erreur d’upload.";
+    }
 });
